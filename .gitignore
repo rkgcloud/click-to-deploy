@@ -1,2 +1,4 @@
 .build/
 *.pyc
+k8s/gcp/config/tls.crt
+k8s/gcp/config/tls.key

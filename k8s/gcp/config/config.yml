@@ -1,0 +1,9 @@
+--zone: "us-east5-a"
+--cluster-version: 1.28.9-gke.1000000
+--release-channel: regular
+--machine-type: "e2-standard-4"
+--image-type: "COS_CONTAINERD"
+--disk-type: "pd-balanced"
+--disk-size: "100"
+--num-nodes: "3"
+--node-locations: "us-east5-a"

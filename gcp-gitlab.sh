@@ -15,9 +15,11 @@ kapp deploy -a app-crd -f "https://raw.githubusercontent.com/GoogleCloudPlatform
 export APP_INSTANCE_NAME=gitlab-1
 export NAMESPACE=gitlab
 export METRICS_EXPORTER_ENABLED=false
+# export DOMAIN_NAME="rkgcloud.com"
 
 # check latest tag version here https://console.cloud.google.com/artifacts/docker/cloud-marketplace/us/gcr.io/google%2Fgitlab
 export TAG="16.3"
+# export TAG="17.1.0"
 export IMAGE_REGISTRY="marketplace.gcr.io/google"
 export IMAGE_GITLAB="${IMAGE_REGISTRY}/gitlab"
 export IMAGE_REDIS="${IMAGE_REGISTRY}/gitlab/redis:${TAG}"
@@ -64,7 +66,7 @@ echo will execute helm install with following args ...\
 $SCRIPT_DIR/k8s/gitlab/chart/gitlab
 
 
-helm install "${APP_INSTANCE_NAME}" \
+helm upgrade --install "${APP_INSTANCE_NAME}" \
 --namespace "${NAMESPACE}" \
 --set gitlab.image.repo="${IMAGE_GITLAB}" \
 --set gitlab.image.tag="${TAG}" \
